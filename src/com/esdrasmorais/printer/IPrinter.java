@@ -6,7 +6,17 @@ public interface IPrinter {
 	public void setWorker(String name);
 	public void openCoupon(String cpf, String name, String address);
 	public void saleItemRound(
-		Long code, String description, Unity unity, 
+		Long code, 
+		String description, 
+		Unity unity, 
+		FractionalQuantity fractionalQuantity,
+		UnitaryValue unitaryValue,
+		Unitary unitary, 
+		String Addition, 
+		String Discount, 
+		boolean toRound
 	);
-	public boolean finishCoupon();
+	public void commitPaymentMethod(PaymentMethod paymentMethod, Float value);
+	public boolean finishClosureCoupon(String message);
+	public void cancelCoupon();
 }

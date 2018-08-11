@@ -1,5 +1,5 @@
 
-package com.esdrasmorais.utils;
+package com.esdrasmorais.util;
 
 import java.util.List;
 

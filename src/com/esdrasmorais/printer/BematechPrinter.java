@@ -6,6 +6,23 @@ import java.util.Date;
 public class BematechPrinter implements IPrinter {
 	private String returns = "";
 	private Integer result;
+
+	protected void setStatusBarFunctionReturn(int value) {
+		returns += "Function Return: " + Integer.toString(value);
+	}
+	
+	protected String setStatusBarPrinterStatus() {
+		BemaInteger ack = new BemaInteger();
+		BemaInteger st1 = new BemaInteger();
+		BemaInteger st2 = new BemaInteger();
+		BemaInteger st3 = new BemaInteger();
+		Bematech.RetornoImpressoraMFD(ack, st1, st2, st3);
+		return returns + "\nPrinter Status:\n ACK: " +
+			Integer.toString(ack.number) + ",\n ST1: " +
+			Integer.toString(st1.number) + ",\n ST2: " +
+			Integer.toString(st2.number) + ",\n ST3: " +
+			Integer.toString(st3.number);
+	}
 	
 	@Override
 	public void xReading() {
@@ -26,23 +43,6 @@ public class BematechPrinter implements IPrinter {
 		this.setStatusBarFunctionReturn(this.result);
 	}
 
-	protected void setStatusBarFunctionReturn(int value) {
-		returns += "Function Return: " + Integer.toString(value);
-	}
-	
-	protected String setStatusBarPrinterStatus() {
-		BemaInteger ack = new BemaInteger();
-		BemaInteger st1 = new BemaInteger();
-		BemaInteger st2 = new BemaInteger();
-		BemaInteger st3 = new BemaInteger();
-		Bematech.RetornoImpressoraMFD(ack, st1, st2, st3);
-		return returns + "\nPrinter Status:\n ACK: " +
-			Integer.toString(ack.number) + ",\n ST1: " +
-			Integer.toString(st1.number) + ",\n ST2: " +
-			Integer.toString(st2.number) + ",\n ST3: " +
-			Integer.toString(st3.number);
-	}
-
 	@Override
 	public void openCoupon(String cpf, String name, String address) {
 		this.result = Bematech.AbreCupomMFD(cpf, name, address);
@@ -50,7 +50,32 @@ public class BematechPrinter implements IPrinter {
 	}
 	
 	@Override
-	public boolean finishCoupon() {
-		return false;
+	public void saleItemRound(Long code, String description, Unity unity, 
+		FractionalQuantity fractionalQuantity, UnitaryValue unitaryValue,
+		Unitary unitary, String Addition, String Discount, boolean toRound
+	) {
+		this.result = Bematech.VendeItemArredondamentoMFD(
+			String Codigo, String Descricao, String Aliquota, String UnidadeMedida, 
+			String QtdFracionaria, String Unitario, String Acrescimo, String Desconto, 
+			boolean Arredonda);
+		this.setStatusBarFunctionReturn(this.result);
+	}
+	
+	@Override
+	public void commitPaymentMethod(PaymentMethod paymentMethod, Float value) {
+		this.result = Bematech.EfetuaFormaPagamento(paymentMethod, value);
+		this.setStatusBarFunctionReturn(this.result);
+	}
+	
+	@Override
+	public void finishClosureCoupon(String message) {
+		this.result = Bematech.TerminaFechamentoCupom(message);
+		this.setStatusBarFunctionReturn(this.result);
+	}
+	
+	@Override
+	public void cancelCoupon() {
+		this.result = Bematech.CancelaCupom();
+		this.setStatusBarFunctionReturn(this.result);
 	}
 }

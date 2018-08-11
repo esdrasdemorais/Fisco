@@ -1,5 +1,5 @@
 
-package com.esdrasmorais.utils.repository;
+package com.esdrasmorais.util.repository;
 
 public class Repository<T> implements IRepository<T> {
     private RepositoryImpl repositoryImpl;
