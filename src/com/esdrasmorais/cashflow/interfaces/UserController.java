@@ -1,5 +1,5 @@
 
-package com.esdrasmorais.cashflow.interface;
+package com.esdrasmorais.cashflow.interfaces;
 
 import javax.validation.Valid;
 

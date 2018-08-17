@@ -1,9 +1,13 @@
 
 package com.esdrasmorais.util.application;
 
+import java.util.List;
+
+import com.esdrasmorais.util.service.IService;
+
 public class Application<T> implements IApplication<T> {
 
-	private static final IService<T> _service;
+	private final IService<T> _service;
 	
 	public Application(IService<T> service) {
 		this._service = service;
@@ -22,11 +26,11 @@ public class Application<T> implements IApplication<T> {
 	}
 	
 	public boolean save(T object) {
-		this._service.save(object);
+		return this._service.save(object);
 	}
 	
 	public boolean remove(T object) {
-		this._service.remove(object);
+		return this._service.remove(object);
 	}
 	
 	public void dispose() {

@@ -3,9 +3,11 @@ package com.esdrasmorais.util.service;
 
 import java.util.List;
 
+import com.esdrasmorais.util.repository.IRepository;
+
 public class Service<T> implements IService<T> {
 	
-	private static final IRepository<T> _repository;
+	private final IRepository<T> _repository;
 	
 	public Service(IRepository<T> repository) {
 		this._repository = repository;
@@ -24,11 +26,11 @@ public class Service<T> implements IService<T> {
 	}
 	
 	public boolean save(T object) {
-		this._repository.save(object);
+		return this._repository.save(object);
 	}
 	
 	public boolean remove(T object) {
-		this._repository.remove(object);
+		return this._repository.remove(object);
 	}
 	
 	public void dispose() {

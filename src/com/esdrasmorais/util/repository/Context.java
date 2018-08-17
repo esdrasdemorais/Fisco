@@ -1,6 +1,8 @@
 
 package com.esdrasmorais.util.repository;
 
+import java.net.UnknownHostException;
+
 public abstract class Context implements IContext {
     private IClient client;
     private IDb db;

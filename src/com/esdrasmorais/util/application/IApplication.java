@@ -1,6 +1,8 @@
 
 package com.esdrasmorais.util.application;
 
+import java.util.List;
+
 public interface IApplication<T> {
 	public List<T> findAll();
 	public T findById(Long id);

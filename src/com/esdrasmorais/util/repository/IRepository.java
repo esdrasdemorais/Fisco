@@ -1,10 +1,10 @@
 
-package com.esdrasmorais.util;
+package com.esdrasmorais.util.repository;
 
 import java.util.List;
 
 public interface IRepository<T> {
-    public T findAll();
+    public List<T> findAll();
     public T findById(Long id);
     public List<T> find(String query, Object[] params);
     public boolean save(T object);
