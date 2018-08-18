@@ -1,6 +1,8 @@
 
 package com.esdrasmorais.util.repository;
 
+import java.util.List;
+
 public class Repository<T> implements IRepository<T> {
     private RepositoryImpl repositoryImpl;
 

@@ -1,7 +1,10 @@
 
 package com.esdrasmorais.cashflow.infrastructure;
 
-import com.esdrasmorais.utils.repository.*;
+import java.util.List;
+import com.esdrasmorais.cashflow.domain.model.User;
+import com.esdrasmorais.util.repository.IRepository;
+import com.esdrasmorais.util.repository.Repository;
 
 public class UserRepository extends Repository<User> 
     implements IUserRepository

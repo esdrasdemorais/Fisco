@@ -1,5 +1,8 @@
 package com.esdrasmorais.printer;
 
+import com.esdrasmorais.cashflow.domain.model.PaymentMethod;
+import com.esdrasmorais.cashflow.domain.model.Unity;
+
 public interface IPrinter {
 	public void xReading();
 	public void zReading();

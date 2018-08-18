@@ -1,6 +1,8 @@
 
 package com.esdrasmorais.util.repository;
 
+import java.util.List;
+
 public abstract class RepositoryImpl extends Context {
 
     public RepositoryImpl(Context context, IClient client, IDb db) {

@@ -10,7 +10,7 @@ public abstract class Context implements IContext {
 
     public Context(IContext context, IClient client, IDb db) {
         if (context != null)
-            this.context = context;
+            Context.context = context;
         if (client != null)
             this.client = client;
         if (db != null)
@@ -27,13 +27,13 @@ public abstract class Context implements IContext {
             this.client = new Client("localhost", 27017);
     }
 
-    public static Context get() {
-        return this.context;
+    public static IContext getContext() {
+        return context;
     }
 
-    public Context connect(String name) {
+    public IContext connect(String name) {
         if (this.db == null)
-            this.db = Db.setDb(IClient client);
-        return this.context;
+            this.db = Db.setDb(client, name);
+        return context;
     }
 }

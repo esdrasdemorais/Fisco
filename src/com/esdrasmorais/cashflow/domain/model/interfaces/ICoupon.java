@@ -3,6 +3,8 @@ package com.esdrasmorais.cashflow.domain.model.interfaces;
 
 import java.util.List;
 
+import com.esdrasmorais.cashflow.domain.model.OrderItem;
+
 public interface ICoupon {
     public void setHeader(String header);
     public void setTitle(String title);

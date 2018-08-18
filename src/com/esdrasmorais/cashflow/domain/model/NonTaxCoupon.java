@@ -2,21 +2,25 @@
 package com.esdrasmorais.cashflow.domain.model;
 
 import java.util.Date;
-import java.util.SimpleDateFormat;
+import java.util.List;
+import java.text.SimpleDateFormat;
 import com.esdrasmorais.cashflow.domain.model.interfaces.ICoupon;
+import com.esdrasmorais.cashflow.domain.model.OrderItem;
 
-public class TaxCouponEletronic extends IdentifiedDomainObject implements ICoupon {
-    private static final header = "";
+public class NonTaxCoupon extends IdentifiedDomainObject implements ICoupon {
+    private static final String header = "";
 
-    private static final separator = "------------------------------------";
+    private static final String separator = "------------------------------------";
 
-    private static final title = "CUPOM FISCAL";  
+    private static final String title = "CUPOM FISCAL";  
 
-    private static final version = "01.00.00 ECF:002 LJ:0001";
+    private static final String version = "01.00.00 ECF:002 LJ:0001";
 
-    private DateTime time;
+    private Date time;
 
-    public TaxCoupon() {
+    private List<OrderItem> items;
+    
+    public NonTaxCoupon() {
         this.setTime(new Date());
     }
 
@@ -32,7 +36,7 @@ public class TaxCouponEletronic extends IdentifiedDomainObject implements ICoupo
     }
 
     public void setHeader(String header) {
-        this.header = header.trim().length() == 0 ?
+        header = header.trim().length() == 0 ?
             "COMERCIAL TRES IRMAOS LTDA - ME\n" +
             "Av. Otávio Braga de Mesquita, 3795 Jd. São Geraldo\n" +
             "CEP:07140-230 TEL:(11)4307-1852 GUARULHOS SP\n" +
@@ -48,7 +52,7 @@ public class TaxCouponEletronic extends IdentifiedDomainObject implements ICoupo
     }
 
     public String getCode() {
-
+    	return "";
     }
 
     public void setFooter(String footer) {
@@ -56,14 +60,14 @@ public class TaxCouponEletronic extends IdentifiedDomainObject implements ICoupo
     }
 
     public void setItems(List<OrderItem> items) {
-
+    	this.items = items;
     }
 
-    public boolean save(Coupon coupon) {
-
+    public boolean save(ICoupon coupon) {
+    	return true;
     }
 
-    public boolean cancel(Coupon coupon) {
-    
+    public boolean cancel(ICoupon coupon) {
+    	return false;
     }
 }

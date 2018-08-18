@@ -60,7 +60,7 @@ public class Product extends IdentifiedDomainObject {
         return this.selledQuantity;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(Short rating) {
         this.rating = rating;
     }
 }

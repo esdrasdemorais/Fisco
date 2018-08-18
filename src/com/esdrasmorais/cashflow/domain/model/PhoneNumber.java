@@ -1,10 +1,10 @@
 
 package com.esdrasmorais.cashflow.domain.model;
 
-import org.springframework.data.annotation.Id;
+//import org.springframework.data.annotation.Id;
 
 public class PhoneNumber {
-    @Id
+    //@Id
     private Long id;
     private Short code;
     private Short ddd;
