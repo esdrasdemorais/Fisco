@@ -1,9 +1,9 @@
 
-package br.com.esdrasmorais.cashflow.domain.model;
+package com.esdrasmorais.cashflow.domain.model;
 
 import java.util.Date;
 import java.util.SimpleDateFormat;
-import br.com.esdrasmorais.cashflow.domain.model.interfaces;
+import com.esdrasmorais.cashflow.domain.model.interfaces.ICoupon;
 
 public class TaxCouponEletronic extends IdentifiedDomainObject implements ICoupon {
     private static final header = "";

@@ -1,13 +1,15 @@
 
 package com.esdrasmorais.cashflow.domain.model.interfaces;
 
-public interface Coupon {
+import java.util.List;
+
+public interface ICoupon {
     public void setHeader(String header);
     public void setTitle(String title);
     public void setSeparator(String separator);
     public String getCode();
     public void setFooter(String footer);
     public void setItems(List<OrderItem> items);
-    public boolean save(Coupon coupon);
-    public boolean cancel(Coupon coupon);
+    public boolean save(ICoupon coupon);
+    public boolean cancel(ICoupon coupon);
 }
