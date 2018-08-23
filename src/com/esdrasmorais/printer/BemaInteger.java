@@ -1,14 +1,14 @@
 package com.esdrasmorais.printer;
 
-public class BemaIntegerSource {
+public class BemaInteger {
 	public int number;
-	
-	public BemaIntegerSource()
-	{
+
+	public BemaInteger() {
 		number = 0;
-	
+
 	}
-	public int getNumber(){
+
+	public int getNumber() {
 		return number;
 	}
 }

@@ -1,14 +1,14 @@
 package com.esdrasmorais.printer;
 
-public class BemaStringSource {
+public class BemaString {
 	public String buffer;
-	
-	public BemaStringSource()
-	{
+
+	public BemaString() {
 		buffer = "";
-	
+
 	}
-	public String getBuffer(){
+
+	public String getBuffer() {
 		return buffer;
 	}
 }

@@ -3,22 +3,21 @@ package com.esdrasmorais.cashflow.domain.model;
 
 import java.io.Serializable;
 
-public class IdentifiedDomainObject 
-        implements Serializable {
-    
-    private Long id = -1L;
+public class IdentifiedDomainObject implements Serializable {
 
-    public IdentifiedDomainObject() {
-        super();
-    }
+	private Long id = -1L;
 
-    protected Long getId() {
-        return this.id;
-    }
+	public IdentifiedDomainObject() {
+		super();
+	}
 
-    public void setId(Long id) {
-        if (id <= 0)
-            throw new IllegalArgumentException("Codigo Invalido.");
-        this.id = id;
-    }
+	protected Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		if (id <= 0)
+			throw new IllegalArgumentException("Codigo Invalido.");
+		this.id = id;
+	}
 }

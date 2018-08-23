@@ -2,7 +2,9 @@
 package com.esdrasmorais.util.repository;
 
 public interface IClient {
-    public void setHost(String host);
-    public void setPort(String port);
-    public IDb getDB(String name);
+	public void setHost(String host);
+
+	public void setPort(String port);
+
+	public IDb getDB(String name);
 }
