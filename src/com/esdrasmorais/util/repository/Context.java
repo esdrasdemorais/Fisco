@@ -3,6 +3,10 @@ package com.esdrasmorais.util.repository;
 
 import java.net.UnknownHostException;
 
+import com.esdrasmorais.util.repository.interfaces.IClient;
+import com.esdrasmorais.util.repository.interfaces.IContext;
+import com.esdrasmorais.util.repository.interfaces.IDb;
+
 public abstract class Context implements IContext {
 	private IClient client;
 	private IDb db;
@@ -16,15 +20,15 @@ public abstract class Context implements IContext {
 		if (db != null)
 			this.db = db;
 		try {
-			this.init();
+			this.init(context);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
-	public void init() throws UnknownHostException {
+	public void init(IClient client) throws UnknownHostException {
 		if (client == null)
-			this.client = new Client("localhost", 27017);
+			this.client = client;
 	}
 
 	public static IContext getContext() {
@@ -33,7 +37,7 @@ public abstract class Context implements IContext {
 
 	public IContext connect(String name) {
 		if (this.db == null)
-			this.db = Db.setDb(client, name);
+			this.db = DbImpl.setDb(client, name);
 		return context;
 	}
 }

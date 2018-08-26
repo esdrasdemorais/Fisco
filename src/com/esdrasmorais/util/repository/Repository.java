@@ -3,6 +3,8 @@ package com.esdrasmorais.util.repository;
 
 import java.util.List;
 
+import com.esdrasmorais.util.repository.interfaces.IRepository;
+
 public class Repository<T> implements IRepository<T> {
 	private RepositoryImpl repositoryImpl;
 
@@ -20,16 +22,16 @@ public class Repository<T> implements IRepository<T> {
 
 	@Override
 	public List<T> findAll() {
-		return null;
-	}
-
-	@Override
-	public T findById(Long id) {
-		return null;
+		return repositoryImpl.findAll();
 	}
 
 	@Override
 	public void dispose() {
+		
+	}
 
+	@Override
+	public T findById(Long id) {
+		return repositoryImpl.findById(id);
 	}
 }

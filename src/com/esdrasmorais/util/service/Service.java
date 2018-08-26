@@ -3,11 +3,11 @@ package com.esdrasmorais.util.service;
 
 import java.util.List;
 
-import com.esdrasmorais.util.repository.IRepository;
+import com.esdrasmorais.util.repository.interfaces.IRepository;
 
 public class Service<T> implements IService<T> {
 
-	private final IRepository<T> _repository;
+	private final com.esdrasmorais.util.repository.interfaces.IRepository<T> _repository;
 
 	public Service(IRepository<T> repository) {
 		this._repository = repository;

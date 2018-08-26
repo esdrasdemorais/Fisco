@@ -1,10 +1,15 @@
 
 package com.esdrasmorais.util.repository;
 
+import java.net.UnknownHostException;
 import java.util.List;
 
-public class HibernateRepository extends RepositoryImpl {
-	public HibernateRepository(Context context, IClient client, IDb db) {
+import com.esdrasmorais.util.repository.interfaces.IClient;
+import com.esdrasmorais.util.repository.interfaces.IContext;
+import com.esdrasmorais.util.repository.interfaces.IDb;
+
+public class HibernateRepository<T> extends RepositoryImpl<T> {
+	public HibernateRepository(IContext context, IClient client, IDb db) {
 		super(context, client, db);
 	}
 
@@ -39,14 +44,25 @@ public class HibernateRepository extends RepositoryImpl {
 	}
 
 	@Override
-	public boolean save(Object object) {
-		// TODO Auto-generated method stub
-		return false;
+	public void init(IContext context) throws UnknownHostException {
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
-	public boolean remove(Object object) {
+	public List<T> findAll() {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
+	}
+
+	@Override
+	public T findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,5 +1,5 @@
 
-package com.esdrasmorais.util.repository;
+package com.esdrasmorais.util.repository.interfaces;
 
 import java.util.List;
 

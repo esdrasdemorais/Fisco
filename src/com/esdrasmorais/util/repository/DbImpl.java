@@ -1,7 +1,10 @@
 
 package com.esdrasmorais.util.repository;
 
-public abstract class Db implements IDb {
+import com.esdrasmorais.util.repository.interfaces.IClient;
+import com.esdrasmorais.util.repository.interfaces.IDb;
+
+public abstract class DbImpl implements IDb {
 	private static IDb db = null;
 
 	public static IDb setDb(IClient client, String name) {

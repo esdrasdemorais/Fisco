@@ -5,7 +5,7 @@ import java.util.List;
 import com.esdrasmorais.cashflow.domain.model.User;
 import com.esdrasmorais.cashflow.infrastructure.UserRepository;
 import com.esdrasmorais.cashflow.infrastructure.IUserRepository;
-import com.esdrasmorais.util.repository.IRepository;
+import com.esdrasmorais.util.repository.interfaces.IRepository;
 import com.esdrasmorais.util.service.IService;
 import com.esdrasmorais.util.service.Service;
 
