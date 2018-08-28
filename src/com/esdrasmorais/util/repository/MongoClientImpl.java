@@ -19,10 +19,10 @@ public class MongoClientImpl extends Client {
 	}
 
 	@Override
-	public IDB getDB(String database) {
+	public IDb getDB(String database) {
 		MongoDatabase mongoDataBase = this.mongoClient.getDatabase(database);
-		IDB idb = new DbImpl();
-		idb.setDb()
+		IDb idb = new MongoDb();
+		idb.setDb(this.mongoClient);
 		
 		return idb;
 	}

@@ -32,6 +32,6 @@ public class Repository<T> implements IRepository<T> {
 
 	@Override
 	public T findById(Long id) {
-		return repositoryImpl.findById(id);
+		return (T) repositoryImpl.findById(id);
 	}
 }

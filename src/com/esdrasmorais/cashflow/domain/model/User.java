@@ -1,10 +1,12 @@
 
 package com.esdrasmorais.cashflow.domain.model;
 
-//import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class User {
-	// @Id
+	@Id
 	private Long id;
 	private String name;
 	private String email;

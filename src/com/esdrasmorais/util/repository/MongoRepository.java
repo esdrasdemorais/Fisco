@@ -20,7 +20,7 @@ public class MongoRepository<T> extends RepositoryImpl<T> {
 
 	@Override
 	public <T> List<T> find(String query, Object[] params) {
-		DBCursor result = this.context.get().connectDb("fisco").findByKey(
+		DBCursor result = this.get().connect("fisco").findByKey(
 				"Employee", "age", 32, (value) -> new Integer(value));
 		while (result.hasNext()) {
 			System.out.println(result.next());
