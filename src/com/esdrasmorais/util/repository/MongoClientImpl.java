@@ -1,16 +1,17 @@
 
 package com.esdrasmorais.util.repository;
 
-import com.esdrasmorais.util.repository.interfaces.IClient;
 import com.esdrasmorais.util.repository.interfaces.IDb;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
-public class MongoClientImpl extends Client {
-	private MongoClient mongoClient;
-	
+public class MongoClientImpl extends Client {	
 	private void setMongoClient() {
 		this.mongoClient = new MongoClient(this.getHost(), this.getPort());
+	}
+	
+	public MongoClient getMongoClient() {
+		return this.mongoClient;
 	}
 	
 	public MongoClientImpl(String host, Integer port) {
@@ -19,11 +20,8 @@ public class MongoClientImpl extends Client {
 	}
 
 	@Override
-	public IDb getDB(String database) {
-		MongoDatabase mongoDataBase = this.mongoClient.getDatabase(database);
-		IDb idb = new MongoDb();
-		idb.setDb(this.mongoClient);
-		
-		return idb;
+	public IDb getDb(String database) {
+		this.mongoDatabase = this.mongoClient.getDatabase(database);
+		return new MongoDb(this, database);
 	}
 }

@@ -6,6 +6,7 @@ import java.net.UnknownHostException;
 import com.esdrasmorais.util.repository.interfaces.IClient;
 import com.esdrasmorais.util.repository.interfaces.IContext;
 import com.esdrasmorais.util.repository.interfaces.IDb;
+import com.mongodb.client.MongoDatabase;
 
 public abstract class Context implements IContext {
 	private IClient client;
@@ -33,6 +34,10 @@ public abstract class Context implements IContext {
 
 	public static IContext getContext() {
 		return context;
+	}
+	
+	public MongoDatabase getMongoDatabase() {
+		return this.client.getMongoDatabase();
 	}
 
 	public IContext connect(String name) {

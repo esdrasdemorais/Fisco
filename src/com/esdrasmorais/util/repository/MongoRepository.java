@@ -3,10 +3,14 @@ package com.esdrasmorais.util.repository;
 
 import com.mongodb.DBCursor;
 import com.mongodb.Function;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.DBCollection;
 
 import java.net.UnknownHostException;
 import java.util.List;
+
+import org.bson.Document;
 
 import com.esdrasmorais.util.repository.interfaces.IClient;
 import com.esdrasmorais.util.repository.interfaces.IContext;
@@ -20,20 +24,21 @@ public class MongoRepository<T> extends RepositoryImpl<T> {
 
 	@Override
 	public <T> List<T> find(String query, Object[] params) {
-		DBCursor result = this.get().connect("fisco").findByKey(
-				"Employee", "age", 32, (value) -> new Integer(value));
-		while (result.hasNext()) {
-			System.out.println(result.next());
-		}
+		FindIterable<Document> result = this.findByKey(
+			"Employee", "age", 32, (value) -> new Integer(value));
+		/*while (result.hasNext()) {
+		}*/
+		return (List<T>) result;
 	}
 
-	public <T, X> DBCursor findByKey(String collectionName, String key, 
-		T value, Function<T, X> convertDataType
-	) {
-		DBCollection collection = this.db.getCollection(collectionName);
+	public <T, X> FindIterable<Document> findByKey(String collectionName, 
+		String key, T value, Function<T, X> convertDataType)
+	{
+		MongoCollection<Document> collection = this.getMongoDatabase()
+			.getCollection(collectionName);
 		BasicDBObject searchQuery = new BasicDBObject();
 		searchQuery.put(key, convertDataType.apply(value));
-		DBCursor cursor = collection.find(searchQuery);
+		FindIterable<Document> cursor = collection.find(searchQuery);
 		return cursor;
 	}
 
