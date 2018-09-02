@@ -4,7 +4,7 @@ package com.esdrasmorais.cashflow.domain.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection="User")
 public class User {
 	@Id
 	private Long id;
